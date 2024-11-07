@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>orb_slam3_ros2</name>
+  <version>1.0.0</version>
+  <description>The ORB_SLAM3 package for ROS2.</description>
+
+  <maintainer email="youremail@example.com">Your Name</maintainer>
+  <license>GPLv3</license>
+
+  <!-- This is optional but recommended to keep track of your contributors -->
+  <author email="youremail@example.com">Your Name</author>
+
+  <!-- ROS2 dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies needed to build the package -->
+  <build_depend>rclcpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>opencv4</build_depend>
+  <build_depend>eigen3</build_depend>
+  <build_depend>pangolin</build_depend>
+
+  <!-- Dependencies needed for testing -->
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- Dependencies needed to run the package -->
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>opencv4</exec_depend>
+  <exec_depend>eigen3</exec_depend>
+  <exec_depend>pangolin</exec_depend>
+
+  <!-- Additional export information -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

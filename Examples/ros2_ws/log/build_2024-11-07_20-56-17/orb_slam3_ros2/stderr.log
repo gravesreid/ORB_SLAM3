@@ -1,0 +1,13 @@
+In file included from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/MapPoint.h:23[m[K,
+                 from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/FrameDrawer.h:24[m[K,
+                 from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/Viewer.h:23[m[K,
+                 from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/Tracking.h:26[m[K,
+                 from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/System.h:31[m[K,
+                 from [01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/src/ros2_mono.cpp:31[m[K:
+[01m[K/ORB_SLAM3/Examples/ros2_ws/src/orb_slam3_ros2/../../../../include/KeyFrame.h:24:10:[m[K [01;31m[Kfatal error: [m[KThirdparty/DBoW2/DBoW2/BowVector.h: No such file or directory
+   24 | #include [01;31m[K"Thirdparty/DBoW2/DBoW2/BowVector.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/MonoNode.dir/build.make:63: CMakeFiles/MonoNode.dir/src/ros2_mono.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/MonoNode.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
