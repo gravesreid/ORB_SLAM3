@@ -35,36 +35,42 @@ include_directories(
     ${ORB_SLAM3_PATH}/Thirdparty/DBoW2
     ${ORB_SLAM3_PATH}/Thirdparty/DBoW2/DBoW2  # Add the include path for DBoW2
     ${ORB_SLAM3_PATH}/Thirdparty/g2o  # Add the include path for g2o if needed
+    ${ORB_SLAM3_PATH}/Thirdparty/Sophus
     ${Pangolin_INCLUDE_DIRS}
     ${EIGEN3_INCLUDE_DIRS}
 )
 
-
 # Set compilation flags
 add_compile_options(-Wall -O3 -march=native)
 
-# Libraries to link against
-set(LIBS 
-    ${OpenCV_LIBS} 
-    ${EIGEN3_LIBRARIES}
-    ${Pangolin_LIBRARIES}
-    ${cv_bridge_LIBRARIES}
-    ${ORB_SLAM3_PATH}/Thirdparty/DBoW2/lib/libDBoW2.so
-    ${ORB_SLAM3_PATH}/Thirdparty/g2o/lib/libg2o.so
-    ${ORB_SLAM3_PATH}/lib/libORB_SLAM3.so
-    -lboost_system
+# Add library paths
+link_directories(
+    ${ORB_SLAM3_PATH}/lib
+    ${ORB_SLAM3_PATH}/Thirdparty/DBoW2/lib
+    ${ORB_SLAM3_PATH}/Thirdparty/g2o/lib
 )
 
 # Executable for monocular camera
 add_executable(MonoNode src/ros2_mono.cpp)
 ament_target_dependencies(MonoNode rclcpp sensor_msgs cv_bridge OpenCV Eigen3 Pangolin)
 
-message(STATUS "Include directories: ${CMAKE_INCLUDE_PATH}")
-message(STATUS "Link libraries: ${LIBS}")
+# Libraries to link against
+set(LIBS 
+    ${OpenCV_LIBS}
+    ${EIGEN3_LIBRARIES}
+    ${Pangolin_LIBRARIES}
+    ${cv_bridge_LIBRARIES}
+    ORB_SLAM3
+    DBoW2
+    g2o
+    -lboost_system
+)
 
 # Link libraries to the executable
 target_link_libraries(MonoNode ${LIBS})
 
+# Set RPATH to locate shared libraries during runtime
+set_target_properties(MonoNode PROPERTIES INSTALL_RPATH ${ORB_SLAM3_PATH}/lib)
 
 # Install targets
 install(TARGETS MonoNode
@@ -78,4 +84,5 @@ install(DIRECTORY launch
 
 # Package
 ament_package()
+
 
